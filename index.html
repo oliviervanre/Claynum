@@ -124,5 +124,60 @@
 
   <script data-goatcounter="https://claynum.goatcounter.com/count"
           async src="https://gc.zgo.at/count.js"></script>
+
+  <script>
+    (() => {
+      const sentEvents = new Set();
+
+      function sendEvent(name, title) {
+        if (sentEvents.has(name)) return;
+
+        if (window.goatcounter && typeof window.goatcounter.count === 'function') {
+          window.goatcounter.count({
+            path: name,
+            title,
+            event: true
+          });
+          sentEvents.add(name);
+        }
+      }
+
+      // Temps d'attention : seules les secondes pendant lesquelles l'onglet
+      // est visible sont comptabilisées.
+      let activeSeconds = 0;
+      const timeThresholds = [15, 30, 60, 120];
+
+      window.setInterval(() => {
+        if (document.visibilityState !== 'visible') return;
+
+        activeSeconds += 1;
+        for (const threshold of timeThresholds) {
+          if (activeSeconds >= threshold) {
+            sendEvent(`time-${threshold}s`, `Temps d'attention : ${threshold} s`);
+          }
+        }
+      }, 1000);
+
+      // Profondeur de lecture approximée par la profondeur maximale de scroll.
+      const scrollThresholds = [50, 75, 100];
+
+      function trackScrollDepth() {
+        const documentHeight = document.documentElement.scrollHeight;
+        const viewportBottom = window.scrollY + window.innerHeight;
+        const depth = documentHeight > 0
+          ? Math.min(100, Math.round((viewportBottom / documentHeight) * 100))
+          : 100;
+
+        for (const threshold of scrollThresholds) {
+          if (depth >= threshold) {
+            sendEvent(`scroll-${threshold}`, `Profondeur de lecture : ${threshold} %`);
+          }
+        }
+      }
+
+      window.addEventListener('scroll', trackScrollDepth, { passive: true });
+      window.addEventListener('load', trackScrollDepth);
+    })();
+  </script>
 </body>
 </html>
