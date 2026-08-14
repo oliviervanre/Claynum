@@ -29,8 +29,8 @@ L’objectif est d’éviter les attentes implicites, de limiter les zones grise
 | Formulaire métier / tableau de suivi | Oui | — | — |
 | Automatisation simple | Oui | — | Automatisation critique ou à forte dépendance métier à cadrer séparément |
 | Reprise / simplification d’un outil existant | Oui | Oui | Selon technologie et dette technique |
-| Nom de domaine | Oui | Oui | Le client reste titulaire et responsable du renouvellement |
-| DNS | Oui, configuration simple | Oui | Architectures DNS complexes ou critiques : spécialiste |
+| Nom de domaine | Accompagnement au choix, à la disponibilité et à l’enregistrement | Oui | Le domaine et le compte registrar restent au nom et sous la maîtrise du client ; le client reste responsable du renouvellement |
+| DNS courant | Oui : configuration A, AAAA, CNAME, MX, TXT, redirections et vérifications usuelles | Oui | Architecture DNS complexe ou critique, split-DNS, infrastructure d’entreprise, haute disponibilité ou cas DNSSEC avancé : spécialiste |
 | Hébergement Web léger | Oui | Oui | Hébergement critique, haute disponibilité, PRA/PCA : spécialiste |
 | Hébergement infogéré simple | Non en exploitation permanente | Oui | Exploitant/hébergeur responsable du service |
 | Certificat TLS / HTTPS | Oui, cas standard | Oui | PKI complexe ou certificats internes : spécialiste |
