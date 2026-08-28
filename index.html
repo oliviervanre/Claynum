@@ -118,9 +118,29 @@
   <footer class="site-footer">
     <div class="container footer-inner">
       <p>© 2026 Claynum</p>
-      <p>Projet en cours de création · Yvelines</p>
+      <div class="footer-meta">
+        <p>Projet en cours de création · Yvelines</p>
+        <button class="footer-link" type="button" data-open-project-status>Statut du projet</button>
+      </div>
     </div>
   </footer>
+
+  <dialog class="project-status-dialog" id="project-status-dialog" aria-labelledby="project-status-title">
+    <div class="dialog-content">
+      <div class="dialog-header">
+        <h2 id="project-status-title">Statut du projet</h2>
+        <button class="dialog-close" type="button" data-close-project-status aria-label="Fermer">×</button>
+      </div>
+      <p>Claynum est actuellement un projet personnel à vocation expérimentale et non commerciale.</p>
+      <p>Les contenus, démonstrateurs, conseils et éventuels accompagnements proposés à ce stade sont réalisés à titre gratuit. Ils ne constituent pas une activité commerciale et ne donnent lieu à aucune facturation ni à aucune contrepartie financière attendue.</p>
+      <p>Les interventions éventuellement réalisées auprès de tiers ont pour objet de tester les méthodes, outils et services envisagés dans le cadre du projet Claynum.</p>
+      <p>Claynum n’est pas, à ce jour, exploité sous le statut de micro-entreprise et ne propose pas de prestations commerciales rémunérées.</p>
+      <p>Toute évolution vers une activité professionnelle rémunérée fera l’objet, préalablement à son exercice, des formalités et autorisations requises par la réglementation applicable.</p>
+      <div class="dialog-actions">
+        <button class="button button-small" type="button" data-close-project-status>Fermer</button>
+      </div>
+    </div>
+  </dialog>
 
   <script data-goatcounter="https://claynum.goatcounter.com/count"
           async src="https://gc.zgo.at/count.js"></script>
@@ -177,6 +197,24 @@
 
       window.addEventListener('scroll', trackScrollDepth, { passive: true });
       window.addEventListener('load', trackScrollDepth);
+
+      const projectStatusDialog = document.getElementById('project-status-dialog');
+      const openProjectStatusButton = document.querySelector('[data-open-project-status]');
+      const closeProjectStatusButtons = document.querySelectorAll('[data-close-project-status]');
+
+      openProjectStatusButton?.addEventListener('click', () => {
+        projectStatusDialog?.showModal();
+      });
+
+      closeProjectStatusButtons.forEach((button) => {
+        button.addEventListener('click', () => projectStatusDialog?.close());
+      });
+
+      projectStatusDialog?.addEventListener('click', (event) => {
+        if (event.target === projectStatusDialog) {
+          projectStatusDialog.close();
+        }
+      });
     })();
   </script>
 </body>
