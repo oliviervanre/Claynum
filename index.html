@@ -151,6 +151,15 @@
 
   <script>
     (() => {
+      const siteHeader = document.querySelector('.site-header');
+
+      function updateHeaderState() {
+        siteHeader?.classList.toggle('is-scrolled', window.scrollY > 24);
+      }
+
+      window.addEventListener('scroll', updateHeaderState, { passive: true });
+      updateHeaderState();
+
       const sentEvents = new Set();
 
       function sendEvent(name, title) {
