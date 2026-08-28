@@ -5,13 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Appui numérique pour indépendants, petites entreprises et associations dans les Yvelines : cadrage, outils sur mesure et accompagnement pragmatique.">
   <link rel="canonical" href="https://claynum.fr/">
+  <link rel="icon" type="image/png" href="assets/claynum-logo.png">
   <title>Claynum — Appui numérique</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <header class="site-header">
     <div class="container header-inner">
-      <a class="brand" href="#top" aria-label="Claynum, accueil">Claynum</a>
+      <a class="brand brand-logo" href="#top" aria-label="Claynum, accueil">
+        <img src="assets/claynum-logo.png" alt="Claynum">
+      </a>
       <nav class="nav" aria-label="Navigation principale">
         <a href="#approche">Approche</a>
         <a href="#services">Services</a>
@@ -163,8 +166,6 @@
         }
       }
 
-      // Temps d'attention : seules les secondes pendant lesquelles l'onglet
-      // est visible sont comptabilisées.
       let activeSeconds = 0;
       const timeThresholds = [15, 30, 60, 120];
 
@@ -179,7 +180,6 @@
         }
       }, 1000);
 
-      // Profondeur de lecture approximée par la profondeur maximale de scroll.
       const scrollThresholds = [50, 75, 100];
 
       function trackScrollDepth() {
