@@ -1,12 +1,12 @@
 :root {
-  --bg: #f7f7f5;
+  --bg: #f7f9fc;
   --surface: #ffffff;
-  --surface-alt: #eef2f4;
-  --text: #1f2528;
-  --muted: #5f686d;
-  --accent: #234e52;
-  --accent-dark: #17383b;
-  --border: #d9dfe2;
+  --surface-alt: #edf5fb;
+  --text: #17324f;
+  --muted: #5f7185;
+  --accent: #173f6f;
+  --accent-dark: #102f56;
+  --border: #d6e2ec;
   --max: 1160px;
 }
 
@@ -43,7 +43,7 @@ a {
   position: sticky;
   top: 0;
   z-index: 10;
-  background: rgba(247, 247, 245, 0.94);
+  background: rgba(247, 249, 252, 0.94);
   border-bottom: 1px solid var(--border);
   backdrop-filter: blur(10px);
 }
@@ -217,17 +217,21 @@ h3 {
 }
 
 .contact {
-  background: #1f2f32;
+  background: #16395f;
   color: #fff;
 }
 
 .contact .eyebrow {
-  color: #b9d7d8;
+  color: #b9def4;
 }
 
 .contact p {
   max-width: 760px;
-  color: #d9e0e1;
+  color: #e1edf6;
+}
+
+.contact .text-link {
+  color: #ffffff;
 }
 
 .contact .button {
@@ -239,8 +243,8 @@ h3 {
 
 .site-footer {
   padding: 28px 0;
-  background: #182427;
-  color: #c9d0d2;
+  background: #102b49;
+  color: #cad9e7;
   font-size: 0.9rem;
 }
 
@@ -278,11 +282,11 @@ h3 {
   border-radius: 12px;
   color: var(--text);
   background: var(--surface);
-  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.28);
+  box-shadow: 0 24px 70px rgba(16, 47, 86, 0.28);
 }
 
 .project-status-dialog::backdrop {
-  background: rgba(15, 24, 26, 0.62);
+  background: rgba(10, 31, 54, 0.62);
 }
 
 .dialog-content {
