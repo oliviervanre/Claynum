@@ -57,7 +57,8 @@ a {
 }
 
 .header-inner {
-  min-height: 72px;
+  min-height: 96px;
+  transition: min-height 180ms ease;
 }
 
 .brand {
@@ -76,7 +77,16 @@ a {
 .brand-logo img {
   display: block;
   width: auto;
-  height: 42px;
+  height: 72px;
+  transition: height 180ms ease;
+}
+
+.site-header.is-scrolled .header-inner {
+  min-height: 64px;
+}
+
+.site-header.is-scrolled .brand-logo img {
+  height: 44px;
 }
 
 .nav {
@@ -350,8 +360,20 @@ h3 {
     display: none;
   }
 
+  .header-inner {
+    min-height: 78px;
+  }
+
   .brand-logo img {
-    height: 34px;
+    height: 56px;
+  }
+
+  .site-header.is-scrolled .header-inner {
+    min-height: 58px;
+  }
+
+  .site-header.is-scrolled .brand-logo img {
+    height: 38px;
   }
 
   .hero {
