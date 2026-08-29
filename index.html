@@ -151,7 +151,11 @@
       const siteHeader = document.querySelector('.site-header');
 
       function updateHeaderState() {
-        siteHeader?.classList.toggle('is-scrolled', window.scrollY > 24);
+        if (window.scrollY > 80) {
+          siteHeader?.classList.add('is-scrolled');
+        } else if (window.scrollY < 20) {
+          siteHeader?.classList.remove('is-scrolled');
+        }
       }
 
       window.addEventListener('scroll', updateHeaderState, { passive: true });
